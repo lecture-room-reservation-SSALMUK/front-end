@@ -12,9 +12,11 @@ export const Login = () => {
   const loginAcc = () => {
     const user = {
       userid: loginUserId,
-      password: loginUserPw
-    }
-    login({ user });
+      password: loginUserPw,
+    };
+    login({ user }).then((res) => {
+      navigate("/");
+    });
   };
 
   return (
