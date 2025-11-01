@@ -22,7 +22,7 @@ export const Register = () => {
         password: registerUserPw,
         classnumber: registerUserClassNum,
       }
-      register(user).then((res) => {
+      register({ user }).then((res) => {
         navigate('/login')
       }).catch((err) => {
 

@@ -1,4 +1,7 @@
 .list {
   display: grid;
-  gap: 10px;
+}
+
+.list:last-child {
+  border-bottom: 2px solid var(--shadow-color);
 }

@@ -14,7 +14,7 @@ export const Login = () => {
       userid: loginUserId,
       password: loginUserPw
     }
-    login(user);
+    login({ user });
   };
 
   return (
