@@ -4,10 +4,10 @@ const url = `${process.env.REACT_APP_SERVER_API_URL}/classroom`;
 
 export const allClassRoom = async () => {
   const res = await axios.get(`${url}`);
-  return res.data;
+  return res.data.classrooms;
 }
 
 export const classRoomInfo = async (id) => {
   const res = await axios.get(`${url}/${id}`);
-  return res.data;
+  return res.data.classroom;
 }

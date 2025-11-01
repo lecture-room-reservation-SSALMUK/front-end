@@ -14,7 +14,7 @@ export const myReservation = async () => {
 
 export const classroomReservation = async (id) => {
   const res = await axios.get(`${url}/${id}`);
-  return res.data;
+  return res.data.reservations;
 };
 
 export const reservation = async (id, data) => {

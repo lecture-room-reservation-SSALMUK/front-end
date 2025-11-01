@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getCookie } from "../utils/cookie";
+axios.defaults.withCredentials = true;
 
 const url = `${process.env.REACT_APP_SERVER_API_URL}/auth`;
 

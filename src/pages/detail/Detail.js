@@ -24,7 +24,7 @@ export const Detail = () => {
         setInfo(res);
       })
       .catch((err) => {});
-  }, []);
+  }, [params]);
 
   return (
     <div className={styles.home}>
@@ -94,7 +94,8 @@ const ReservationModal = ({ classid, onClose }) => {
     );
 
     if (stTime.getTime() && edTime.getTime()) {
-      reservation(classid, { start: stTime, end: edTime })
+      let reservationDate = { start: stTime.getTime(), end: edTime.getTime() }
+      reservation(classid, { reservation: reservationDate })
         .then((res) => {
           alert("예약 성공");
           onClose();
