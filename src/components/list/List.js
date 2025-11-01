@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./List.module.css";
 import { Item } from "../item/Item";
+import { allClassRoom } from "../../api/classroomApi";
 
 export const List = () => {
-  const dummyData = [
-    {
-      id: "SD223SSD2SD2",
-      name: "410호",
-      position: "공과대학 5호관 4층",
-      maximum: "30명",
-    },
-  ];
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    allClassRoom()
+      .then((res) => {
+        setData(res);
+      })
+      .catch((err) => {console.log(err)});
+  }, []);
+
   return (
     <div className={styles.list}>
-      {dummyData.map((ele) => (
+      {data.map((ele) => (
         <Item info={ele} />
       ))}
     </div>
