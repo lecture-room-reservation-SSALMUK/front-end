@@ -3,8 +3,11 @@ import styles from "./MyPage.module.css";
 import { Navbar } from "../../components/navbar/Navbar";
 import { Reservation } from "../../components/reservation/Reservation";
 import { myReservation } from "../../api/reservationApi";
+import { logout } from "../../api/userApi";
+import { useNavigate } from "react-router";
 
 export const MyPage = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [reservations, setReservations] = useState([]);
 
@@ -15,6 +18,12 @@ export const MyPage = () => {
     });
   }, []);
 
+  const logoutUser = () => {
+    logout().then((res) => {
+      navigate('/login');
+    })
+  }
+
   return loading ? (
     <></>
   ) : (
@@ -23,7 +32,7 @@ export const MyPage = () => {
       <div className={styles.box}>
         <div className={styles.header}>
           <div id={styles.title}>{"내 예약 정보"}</div>
-          <div id={styles.btn} onClick={() => setIsModalOpen(true)}>
+          <div id={styles.btn} onClick={() => logoutUser()}>
             로그아웃
           </div>
         </div>
