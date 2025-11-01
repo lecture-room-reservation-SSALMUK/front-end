@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getCookie } from "../utils/cookie";
 
-const url = `${process.env.RREACT_APP_SERVER_API_URL}/reservate`;
+const url = `${process.env.REACT_APP_SERVER_API_URL}/reservate`;
 
 export const myReservation = async () => {
   const res = await axios.get(`${url}`, {

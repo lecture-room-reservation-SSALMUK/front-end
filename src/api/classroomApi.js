@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = `${process.env.RREACT_APP_SERVER_API_URL}/classroom`;
+const url = `${process.env.REACT_APP_SERVER_API_URL}/classroom`;
 
 export const allClassRoom = async () => {
   const res = await axios.get(`${url}`);

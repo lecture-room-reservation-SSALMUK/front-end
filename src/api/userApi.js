@@ -1,6 +1,7 @@
 import axios from "axios";
+import { getCookie } from "../utils/cookie";
 
-const url = `${process.env.RREACT_APP_SERVER_API_URL}/auth`;
+const url = `${process.env.REACT_APP_SERVER_API_URL}/auth`;
 
 export const login = async (data) => {
   const res = await axios.post(`${url}/login`, data);
