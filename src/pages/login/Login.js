@@ -15,7 +15,11 @@ export const Login = () => {
       password: loginUserPw,
     };
     login({ user }).then((res) => {
-      navigate("/");
+      if (res.err) {
+        alert("로그인에 실패하였습니다!");
+      } else {
+        navigate("/");
+      }
     });
   };
 
