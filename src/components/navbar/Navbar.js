@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 import { useNavigate } from "react-router";
 import { List } from "../list/List";
-import { getCookie } from "../../utils/cookie";
+import { isLogined } from "../../api/userApi";
 
 export const Navbar = () => {
   const navigate = useNavigate();
+  const [isLogin, setIsLogin] = useState(false);
 
   const toLogin = () => {
     navigate(`/login`);
@@ -15,6 +16,15 @@ export const Navbar = () => {
     navigate(`/myPage`);
   }
 
+  useEffect(() => {
+    isLogined().then((res) => {
+      if (res.success) {
+        setIsLogin(true);
+      } else 
+        setIsLogin(false);
+    })
+  }, [])
+
   return (
     <div className={styles.navbar}>
       <div className={styles.header}>
@@ -22,7 +32,7 @@ export const Navbar = () => {
           <div>Logo</div>
         </div>
         <div className={styles.feature}>
-          {getCookie() ? (
+          {isLogin ? (
             <div className={styles.loginBtn} onClick={() => toMyPage()}>
               <span id={styles.txt}>{"내정보"}</span>
             </div>

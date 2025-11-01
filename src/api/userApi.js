@@ -17,3 +17,8 @@ export const logout = async () => {
   const res = await axios.post(`${url}/logout`);
   return res.data;
 }
+
+export const isLogined = async () => {
+  const res = await axios.get(`${url}/isLoggedIn`);
+  return res.data;
+}

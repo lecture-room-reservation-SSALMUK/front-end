@@ -9,7 +9,7 @@ export const myReservation = async () => {
       Authorization: `${getCookie("Authorization")}`,
     },
   });
-  return res.datareservations;
+  return res.data.reservations;
 };
 
 export const classroomReservation = async (id) => {
